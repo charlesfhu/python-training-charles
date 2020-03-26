@@ -1,21 +1,22 @@
 import os
 
-DEBUG = True
+DEBUG = False
 
+try:
+    from .local_config import *
+except ImportError:
+    pass
 
+if not DEBUG:
+    # SECRET_KEY設定
+    SECRET_KEY = os.environ['SECRET_KEY']
 
-DIALECT = 'mysql'
-DRIVER = 'pymysql'
-USERNAME = 'root'
-PASSWORD = '89352189'
-HOST = 'localhost'
-PORT = '3306'
-DATABASE = 'app_db'
-
-#SQLALCHEMY_DATABASE_URI = "{}+{}://{}:{}@{}:{}/{}?charset=utf8".format(DIALECT,DRIVER,USERNAME,PASSWORD,HOST,PORT,DATABASE)
-#SECRET_KEY = os.urandom(24)
-
-SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-SECRET_KEY = os.environ.get('SECRET_KEY')
-
-SQLALCHEMY_TRACK_MODIFICATTONS = False
+    # sqlalchemy設定
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{user}:{password}@{host}/{db}?charset=utf8'.format(**{
+        'user': os.getenv('DB_USER', os.environ['DB_USERNAME']),
+        'password': os.getenv('DB_PASSWORD', os.environ['DB_PASSWORD']),
+        'host': os.getenv('DB_HOST', os.environ['DB_HOSTNAME']),
+        'db': os.getenv('DB_NAME', os.environ['DB_NAME']),
+    })
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_ECHO = False
