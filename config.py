@@ -2,7 +2,7 @@ import os
 
 DEBUG = True
 
-SECRET_KEY = os.urandom(24)
+
 
 DIALECT = 'mysql'
 DRIVER = 'pymysql'
@@ -12,7 +12,10 @@ HOST = 'localhost'
 PORT = '3306'
 DATABASE = 'app_db'
 
-SQLALCHEMY_DATABASE_URI = "{}+{}://{}:{}@{}:{}/{}?charset=utf8".format(DIALECT,DRIVER,USERNAME,PASSWORD,HOST,PORT,DATABASE)
+#SQLALCHEMY_DATABASE_URI = "{}+{}://{}:{}@{}:{}/{}?charset=utf8".format(DIALECT,DRIVER,USERNAME,PASSWORD,HOST,PORT,DATABASE)
+#SECRET_KEY = os.urandom(24)
 
+SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 SQLALCHEMY_TRACK_MODIFICATTONS = False

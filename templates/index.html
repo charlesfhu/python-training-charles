@@ -10,20 +10,20 @@
     
 {% block main %}
     <ul>
-        
+        {% for question in questions %}
             <li class= "form-container">
                 <div class="avatar-group">
                     <img src="{{ url_for('static',filename='images/portrait.jpg') }}" alt="" class="avatar">
                 </div>
                 <div class="question-group">
-                    <p class="question-title"><a href="{{ url_for('detail',question_id=question.id) }}">1</a></p>
-                    <p class="question-content">2</p>
+                    <p class="question-title"><a href="{{ url_for('detail',question_id=question.id) }}">{{ question.title }}</a></p>
+                    <p class="question-content">{{ question.content }}</p>
                     <div class="question-info">
-                        <span class="question-author">3</span>
-                        <span class="question-time">4</span>
+                        <span class="question-author">{{ question.author.username }}</span>
+                        <span class="question-time">{{ question.create_time }}</span>
                     </div>
                 </div>
             </li>
-        
+        {% endfor %}
     </ul>
 {% endblock %}
