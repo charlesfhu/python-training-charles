@@ -1,0 +1,26 @@
+.logo-position{
+    text-align: center;
+    padding: 10px 0;
+    margin-right: 20px;
+}
+
+.logo{
+    width:100px;
+    
+}
+
+body{
+    background: #cecbcb;
+}
+
+.main{
+    background: #fff;
+    width: 730px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.page-title{
+    text-align: center;
+}

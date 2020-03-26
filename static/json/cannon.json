@@ -1,0 +1,7 @@
+{
+    "fx" : {
+        "shoot" : {
+            "url":"/static/audio/thwomp.wav"
+        }
+    }
+}
