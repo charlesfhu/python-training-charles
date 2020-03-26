@@ -12,10 +12,11 @@ db.init_app(app)
 
 @app.route('/')
 def index():
-    context= {
-        'questions':Question.query.order_by(Question.create_time.desc()).all()
-    }
-    return render_template('index.html' , **context)
+    return render_template('index.html')
+    #context= {
+    #    'questions':Question.query.order_by(Question.create_time.desc()).all()
+    #}
+    #return render_template('index.html' , **context)
 
 @app.route('/game/',methods=['GET','POST'])
 def game():
