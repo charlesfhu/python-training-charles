@@ -1,0 +1,54 @@
+#db處理
+    #增加
+    #article1 = Article(title='aaa',content='bbb')
+    #db.session.add(article1)
+    #事務
+    #db.session.commit()
+    #查
+    #result = Article.query.filter(Article.title == 'aaa').all()
+    #article1 = result[0]
+    #print(article1.title)
+    #print(article1.content)
+    #改
+    #article1 = Article.query.filter(Article.title == 'aaa').first()
+    #article1.title = 'new title'
+    #db.session.commit()
+    #刪除
+    #article1 = Article.query.filter(Article.title == 'aaa').first()
+    #db.session.delete(article1)
+    #db.session.commit()
+    
+    #新增用戶
+    #user1 = User(username = "某某某")
+    #db.session.add(user1)
+    #db.session.commit()
+    #新增文章
+    #article = Article(title='aaa',content='bbb',author_id = 1)
+    #db.session.add(article)
+    #db.session.commit()
+    #找標題AAA的作者
+    #article = Article.query.filter(Article.title == 'aaa').first()
+    #author_id = article.author_id
+    #user = User.query.filter(User.id == author_id).first()
+    #print(user.username)
+    #文章導引作者
+    #article = Article(title='aaa',content='bbb')
+    #article.author = User.query.filter(User.id == 1).first()
+    #db.session.add(article)
+    #db.session.commit()
+    #找標題AAA的作者
+    #article = Article.query.filter(Article.title == 'aaa').first()
+    #print('username:%s' % article.author.username)
+    #找到作者寫過的所有文章
+    #article = Article(title='111',content='222',author_id = 1)
+    #db.session.add(article)
+    #db.session.commit()
+    #user = User.query.filter(User.username == '某某某').first()
+    #result = user.articles
+    #for article in result:
+    #    print('-'*10)
+    #   print(article.title)
+#session
+    #session['username'] = '愛你卡慘死'
+    #session.clear()
+    #session.pop('username')
